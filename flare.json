@@ -2,19 +2,19 @@
  "name": "Dr. Seuss",
  "children": [
   {
-   "name": "analytics",
+   "name": "biographical materials",
    "children": [
     {
-     "name": "cluster",
+     "name": "early drawings",
      "children": [
-      {"name": "AgglomerativeCluster", "value": 3938},
-      {"name": "CommunityStructure", "value": 3812},
-      {"name": "HierarchicalCluster", "value": 6714},
-      {"name": "MergeEdge", "value": 743}
+      {"name": "dragon", "value": 3938},
+      {"name": "goblin", "value": 3812},
+      {"name": "romulus and remus", "value": 6714},
+      {"name": "vestal virgins", "value": 743}
      ]
     },
     {
-     "name": "graph",
+     "name": "US Army materials",
      "children": [
       {"name": "BetweennessCentrality", "value": 3534},
       {"name": "LinkDistance", "value": 5731},
@@ -24,7 +24,7 @@
      ]
     },
     {
-     "name": "optimization",
+     "name": "High School and College Materials",
      "children": [
       {"name": "AspectRatioBanker", "value": 7074}
      ]
@@ -32,7 +32,7 @@
    ]
   },
   {
-   "name": "animate",
+   "name": "Books",
    "children": [
     {"name": "Easing", "value": 17010},
     {"name": "FunctionSequence", "value": 5842},
@@ -62,7 +62,7 @@
    ]
   },
   {
-   "name": "data",
+   "name": "Scripts",
    "children": [
     {
      "name": "converters",
@@ -83,7 +83,7 @@
    ]
   },
   {
-   "name": "display",
+   "name": "Screenplays",
    "children": [
     {"name": "DirtySprite", "value": 8833},
     {"name": "LineSprite", "value": 1732},
@@ -92,13 +92,13 @@
    ]
   },
   {
-   "name": "flex",
+   "name": "Advertising artwork",
    "children": [
     {"name": "FlareVis", "value": 4116}
    ]
   },
   {
-   "name": "physics",
+   "name": "Awards",
    "children": [
     {"name": "DragForce", "value": 1082},
     {"name": "GravityForce", "value": 1336},
@@ -111,7 +111,7 @@
    ]
   },
   {
-   "name": "query",
+   "name": "Fanmail",
    "children": [
     {"name": "AggregateExpression", "value": 1616},
     {"name": "And", "value": 1027},
@@ -181,7 +181,7 @@
    ]
   },
   {
-   "name": "scale",
+   "name": "Seuss Products",
    "children": [
     {"name": "IScaleMap", "value": 2105},
     {"name": "LinearScale", "value": 1316},
@@ -196,7 +196,7 @@
    ]
   },
   {
-   "name": "util",
+   "name": "Book promotion materials",
    "children": [
     {"name": "Arrays", "value": 8258},
     {"name": "Colors", "value": 10001},
@@ -241,16 +241,16 @@
    ]
   },
   {
-   "name": "vis",
+   "name": "Photographs",
    "children": [
     {
      "name": "axis",
      "children": [
       {"name": "Axes", "value": 1302},
-      {"name": "Axis", "value": 24593},
+      {"name": "Axis", "value": 400},
       {"name": "AxisGridLine", "value": 652},
       {"name": "AxisLabel", "value": 636},
-      {"name": "CartesianAxes", "value": 6703}
+      {"name": "CartesianAxes", "value": 500}
      ]
     },
     {
@@ -262,17 +262,17 @@
       {"name": "ControlList", "value": 4665},
       {"name": "DragControl", "value": 2649},
       {"name": "ExpandControl", "value": 2832},
-      {"name": "HoverControl", "value": 4896},
+      {"name": "HoverControl", "value": 500},
       {"name": "IControl", "value": 763},
-      {"name": "PanZoomControl", "value": 5222},
-      {"name": "SelectionControl", "value": 7862},
-      {"name": "TooltipControl", "value": 8435}
+      {"name": "PanZoomControl", "value": 600},
+      {"name": "SelectionControl", "value": 500},
+      {"name": "TooltipControl", "value": 800}
      ]
     },
     {
      "name": "data",
      "children": [
-      {"name": "Data", "value": 20544},
+      {"name": "Data", "value": 1000},
       {"name": "DataList", "value": 19788},
       {"name": "DataSprite", "value": 10349},
       {"name": "EdgeSprite", "value": 3301},
