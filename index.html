@@ -109,6 +109,13 @@
         $("#requested-list").html("");
     })
 
+
+    $(".grandparent").click(function(){
+        $("#img-div").html(
+            "<img src='http://thespiritscience.net/wp-content/uploads/2015/11/DrSeuss.jpg'>"
+        );
+    });
+    
     d3.json("flare.json", function(root) {
         initialize(root);
         accumulate(root);
