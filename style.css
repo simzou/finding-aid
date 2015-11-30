@@ -1,3 +1,7 @@
+* {
+    font-family: Roboto;
+}
+
 #chart {
     width: 960px;
     height: 600px;
@@ -100,4 +104,13 @@ li[class^="level-"] {
 
 img {
     height: 100%;
+}
+
+.terminal {
+    stroke: red;
+}
+
+.has-image { 
+    stroke: black;
+    stroke-width: 10;
 }

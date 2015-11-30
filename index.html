@@ -32,6 +32,12 @@
         </div>
         <p>Click any outlined cell to zoom in, or the top orange label to zoom out.</p>
         <ol id="levels-list"></ol>
+        <div id="request">
+        <h2>Requested Items</h2>
+        <ol id="requested-list"></ol>
+        <button id="clear-button" type="button">Clear</button>
+        <button type="button">Submit</button>
+        </div>
     </div>
 
 </div>
@@ -90,7 +96,12 @@
             4: "#DDA0DD" // plum
         }
 
+    requested = [];
 
+    $("#clear-button").click(function(){
+        requested = [];
+        $("#requested-list").html("");
+    })
 
     d3.json("flare.json", function(root) {
         initialize(root);
@@ -171,10 +182,21 @@
                     .call(rect);
 
             g.append("rect")
-                    .attr("class", "parent")
+                    // .attr("class", "parent")
+                    .attr("class", function(d) {
+                        var classes = "parent ";
+                        if (!d._children) {
+                            classes += "terminal ";
+                        }
+
+                        if (d.img) {
+                            classes += "has-image";
+                        }
+                        return classes;
+                    })
                     .call(rect)
                     .append("title")
-                    .text(function(d) { return formatNumber(d.value); })
+                    .text(function(d) { return formatNumber(d.value); });
 
             g.append("text")
                     .attr("dy", ".75em")
@@ -192,6 +214,26 @@
                         "<img src='" + imgurl + "'>"
                     );
                 }
+            })
+
+            $(".terminal").click(function() {
+                // var r = $('<input type="button" value="Request Item"/>');
+                // $("#request").append(r);
+                console.log($(this).attr("name"));
+                var name = $(this).attr("name");
+
+                var index = requested.indexOf(name);
+                if (index >= 0) {
+                    requested.splice(index, 1);
+                }
+                else {
+                    requested.push(name);
+                }
+                var listitems = "";
+                for (i in requested) {
+                    listitems += "<li>" + requested[i] + "</li>";
+                }
+                $("#requested-list").html(listitems);
             })
 
             function transition(d) {
@@ -260,12 +302,10 @@
                     .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); })
                     .attr("data", function(d) {
                         return d.img;
+                    })
+                    .attr("name", function(d) {
+                        return d.name;
                     });
-;
-                    // .attr("class", function(d) {
-                    //     return "level-" + get_levels(d);
-                    // });
-
         }
 
         function name(d) {
