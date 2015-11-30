@@ -7,10 +7,18 @@
     {
      "name": "early drawings",
      "children": [
-      {"name": "dragon", "value": 3938},
-      {"name": "goblin", "value": 3812},
-      {"name": "romulus and remus", "value": 6714},
-      {"name": "vestal virgins", "value": 743}
+      {"name": "dragon", "value": 3938,
+        "info": "Ca. 1926-1927, pencil and ink on paper. [2930]"
+      },
+      {"name": "goblin", "value": 3812, 
+        "info": "Ca. 1926-1927, pencil and ink on paper. [2931]"
+      },
+      {"name": "romulus and remus", "value": 4000,
+        "info": "Ca. 1926-1927, ink on paper. [2928]"
+      },
+      {"name": "vestal virgins", "value": 4000,
+        "info": "Ca. 1926-1927, pencil and ink on paper. [2929]"
+      }
      ]
     },
     {
@@ -94,7 +102,7 @@
   {
    "name": "Advertising artwork",
    "children": [
-    {"name": "FlareVis", "value": 4116}
+    {"name": "FlareVis", "value": 43116}
    ]
   },
   {

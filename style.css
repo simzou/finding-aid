@@ -1,7 +1,12 @@
 #chart {
     width: 960px;
-    height: 500px;
+    height: 600px;
     background: #ddd;
+    margin: auto;
+}
+
+#page-title {
+    text-align: center;
 }
 
 text {
@@ -36,10 +41,46 @@ rect.parent,
 }
 
 .children rect.parent {
-    fill: #bbb;
+    fill: #90EE90;
     fill-opacity: .5;
+    stroke: green;
 }
 
 .children:hover rect.child {
     fill: #bbb;
+    fill-opacity: .5;
+}
+
+#levels {
+    margin: auto;
+    width: 960px;
+}
+
+li[class^="level-"] {
+    padding: 10px;
+    font-family: Arial;
+}
+
+.level-1 {
+    background-color: #90EE90;
+}
+
+.level-2 {
+    background-color: #E0FFFF;
+}
+
+.level-3 {
+    background-color: #FFB6C1;
+}
+
+.level-4 {
+    background-color: #DDA0DD;
+}
+
+#levels-list {
+    width: 500px;
+}
+
+#levels span {
+    display: inline-block;
 }
