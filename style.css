@@ -59,8 +59,9 @@ rect {
     fill-opacity: .5;
 }
 
-#levels {
+#sidebar {
     display: inline-block;
+    width: 400px;
 }
 
 li[class^="level-"] {
@@ -82,12 +83,6 @@ li[class^="level-"] {
 
 .level-4 {
     background-color: #DDA0DD;
-}
-
-#levels-list {
-}
-
-#levels span {
 }
 
 #instructions {
@@ -115,6 +110,15 @@ img {
     stroke: black;
     stroke-width: 10;
 }
-#list-container {
-    width: 400px;
+
+#levels, #requests {
+    display: inline-block;
+}
+
+#levels {
+    float: left;
+}
+
+#requests {
+    float: right;
 }

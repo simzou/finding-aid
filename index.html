@@ -25,27 +25,25 @@
 <h1 id="page-title">Zoomable Finding Aid</h1>
 
 <div id="chart"></div>
-<div id="levels">
-    <div id="list-container">
-        <div id="img-div">
-            <img class="center" src="http://thespiritscience.net/wp-content/uploads/2015/11/DrSeuss.jpg">
-        </div>
-        <div>
-            <p>Click any green outlined cell to zoom in, or the top orange label to zoom out. </p>
-            <p>Red outlined cells can't be zoomed in any further, clicking them will add the item to the request list. Click again to remove.</p>
-            <p>Black outlined cells have digitized items, click them to see the image</p>
-        </div>
-
+<div id="sidebar">
+    <div id="img-div">
+        <img class="center" src="http://thespiritscience.net/wp-content/uploads/2015/11/DrSeuss.jpg">
+    </div>
+    <div id="instructions">
+        <p>Click any green outlined cell to zoom in, or the top orange label to zoom out. </p>
+        <p>Red outlined cells can't be zoomed in any further, clicking them will add the item to the request list. Click again to remove.</p>
+        <p>Black outlined cells have digitized items, click them to see the image</p>
+    </div>
+    <div id="levels">
         <h2>Visual breadcrumb</h2>
         <ol id="levels-list"></ol>
-        <div id="request">
+    </div>
+    <div id="requests">
         <h2>Requested Items</h2>
-        <ul id="requested-list"></ul>
         <button id="clear-button" type="button">Clear</button>
         <button type="button">Submit</button>
-        </div>
+        <ul id="requested-list"></ul>
     </div>
-
 </div>
 
 
@@ -84,7 +82,7 @@
             .attr("class", "grandparent");
 
     // var levels = d3.select("#levels").append("svg").append("g");
-    var levels = d3.select("#levels").select("ol");
+    var levels = d3.select("#sidebar").select("ol");
 
     grandparent.append("rect")
             .attr("y", -margin.top)
