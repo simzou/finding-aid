@@ -102,7 +102,9 @@
   {
    "name": "Advertising artwork",
    "children": [
-    {"name": "FlareVis", "value": 43116}
+    {"name": "Ajax Cup advertisement", "value": 43116,
+      "img": "http://library.ucsd.edu/dc/object/bb16050824/_1_3.jpg"
+    }
    ]
   },
   {

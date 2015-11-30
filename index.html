@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <style>
         h1 {
@@ -25,12 +26,14 @@
 
 <div id="chart"></div>
 <div id="levels">
-    <span>
+    <div id="list-container">
+        <div id="img-div">
+            <img class="center" src="http://thespiritscience.net/wp-content/uploads/2015/11/DrSeuss.jpg">
+        </div>
+        <p>Click any outlined cell to zoom in, or the top orange label to zoom out.</p>
         <ol id="levels-list"></ol>
-    </span>
-    <span>
-        <p>Click any cell to zoom in, or the top orange label to zoom out.</p>
-    </span>
+    </div>
+
 </div>
 
 
@@ -88,11 +91,15 @@
         }
 
 
+
     d3.json("flare.json", function(root) {
         initialize(root);
         accumulate(root);
         layout(root);
         display(root);
+
+
+
 
         function initialize(root) {
             root.x = root.y = 0;
@@ -167,12 +174,25 @@
                     .attr("class", "parent")
                     .call(rect)
                     .append("title")
-                    .text(function(d) { return formatNumber(d.value); });
+                    .text(function(d) { return formatNumber(d.value); })
 
             g.append("text")
                     .attr("dy", ".75em")
-                    .text(function(d) { return d.name; })
+                    .text(function(d) { 
+                        var info = d.info ? ": " + d.info : "";
+                        return d.name + " " + info; 
+                    })
                     .call(text);
+
+            $("rect").click(function(){
+                console.log(this);
+                var imgurl = $(this).attr("data");
+                if (imgurl) {
+                    $("#img-div").html(
+                        "<img src='" + imgurl + "'>"
+                    );
+                }
+            })
 
             function transition(d) {
                 if (transitioning || !d) return;
@@ -216,6 +236,7 @@
                         return colors[num_levels];
                     });
 
+
                 g2.selectAll("rect")
                     .style("fill", function (d,i) {
                         return colors[num_levels];
@@ -229,13 +250,18 @@
         function text(text) {
             text.attr("x", function(d) { return x(d.x) + 6; })
                     .attr("y", function(d) { return y(d.y) + 6; });
+
         }
 
         function rect(rect) {
             rect.attr("x", function(d) { return x(d.x); })
                     .attr("y", function(d) { return y(d.y); })
                     .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
-                    .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+                    .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); })
+                    .attr("data", function(d) {
+                        return d.img;
+                    });
+;
                     // .attr("class", function(d) {
                     //     return "level-" + get_levels(d);
                     // });
