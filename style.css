@@ -3,13 +3,7 @@
 }
 
 #chart {
-    width: 960px;
-    height: 600px;
     background: #ddd;
-    display: inline-block;
-    float: left;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 #page-title {
@@ -60,8 +54,6 @@ rect {
 }
 
 #sidebar {
-    display: inline-block;
-    width: 400px;
 }
 
 li[class^="level-"] {
@@ -86,12 +78,6 @@ li[class^="level-"] {
 }
 
 #instructions {
-    float:right;
-}
-
-.center{
-    display: block;
-    margin: auto;
 }
 
 #img-div {
@@ -115,10 +101,3 @@ img {
     display: inline-block;
 }
 
-#levels {
-    float: left;
-}
-
-#requests {
-    float: right;
-}

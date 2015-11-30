@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>HCI Finding Aids</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -22,36 +23,41 @@
 
 
 <body>
-<h1 id="page-title">Zoomable Finding Aid</h1>
 
-<div id="chart"></div>
-<div id="sidebar">
-    <div id="img-div">
-        <img class="center" src="http://thespiritscience.net/wp-content/uploads/2015/11/DrSeuss.jpg">
-    </div>
-    <div id="instructions">
-        <p>Click any green outlined cell to zoom in, or the top orange label to zoom out. </p>
-        <p>Red outlined cells can't be zoomed in any further, clicking them will add the item to the request list. Click again to remove.</p>
-        <p>Black outlined cells have digitized items, click them to see the image</p>
-    </div>
-    <div id="levels">
-        <h2>Visual breadcrumb</h2>
-        <ol id="levels-list"></ol>
-    </div>
-    <div id="requests">
-        <h2>Requested Items</h2>
-        <button id="clear-button" type="button">Clear</button>
-        <button type="button">Submit</button>
-        <ul id="requested-list"></ul>
+<div class="container">
+    <h1 id="page-title">Zoomable Finding Aid</h1>
+    <div class="row">
+        <div id="chart" class="col-lg-8"></div>
+        <div id="sidebar" class="col-lg-4">
+            <div class="img-responsive" id="img-div">
+                <img class="center" src="http://thespiritscience.net/wp-content/uploads/2015/11/DrSeuss.jpg">
+            </div>
+            <div id="instructions">
+                <p>Click any green outlined cell to zoom in, or the top orange label to zoom out. </p>
+                <p>Red outlined cells can't be zoomed in any further, clicking them will add the item to the request list. Click again to remove.</p>
+                <p>Black outlined cells have digitized items, click them to see the image</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" id="levels">
+                    <h2>Visual breadcrumb</h2>
+                    <ol id="levels-list"></ol>
+                </div>
+                <div class="col-lg-6" id="requests">
+                    <h2>Requested Items</h2>
+                    <button id="clear-button" type="button">Clear</button>
+                    <button type="button">Submit</button>
+                    <ul id="requested-list"></ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-
     <script>
 
-    var margin = {top: 30, right: 0, bottom: 0, left: 0},
-            width = 960,
-            height = 600 - margin.top - margin.bottom,
+    var margin = {top: 30, right: 0, bottom: 10, left: 0},
+            width = 750,
+            height = 750 - margin.top - margin.bottom,
             formatNumber = d3.format(",d"),
             transitioning;
 
@@ -75,7 +81,7 @@
             .style("margin-left", -margin.left + "px")
             .style("margin.right", -margin.right + "px")
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .attr("transform", "translate(" + margin.left + "," + (margin.top + 10) + ")")
             .style("shape-rendering", "crispEdges");
 
     var grandparent = svg.append("g")
@@ -114,7 +120,14 @@
         );
     });
     
-    d3.json("flare.json", function(root) {
+    $(window).resize(function () {
+        var div = document.getElementById("#chart");
+        div.parentNode.removeChild(div);
+        ZoomableTreeMap();
+    });
+
+
+    var ZoomableTreeMap = d3.json("flare.json", function(root) {
         initialize(root);
         accumulate(root);
         layout(root);
