@@ -43,7 +43,8 @@ rect.parent,
 }
 
 .children rect.parent,
-.grandparent rect {
+.grandparent rect,
+rect {
     cursor: pointer;
 }
 
