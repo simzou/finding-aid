@@ -115,6 +115,13 @@ img {
     display: inline-block;
 }
 
+#requested-list {
+    float:right;
+    word-break:break-all;
+    display: inline;
+    width: 100%;
+}
+
 #levels {
     float: left;
 }

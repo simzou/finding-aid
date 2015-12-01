@@ -2,22 +2,43 @@
  "name": "Dr. Seuss",
  "children": [
   {
-   "name": "biographical materials",
+   "name": "Biographical Materials",
    "children": [
     {
-     "name": "early drawings",
+     "name": "Early Drawings",
      "children": [
-      {"name": "dragon", "value": 3938,
+      {"name": "Dragon", "value": 3938,
         "info": "Ca. 1926-1927, pencil and ink on paper. [2930]"
       },
-      {"name": "goblin", "value": 3812, 
+      {"name": "Gobelin", "value": 3812, 
         "info": "Ca. 1926-1927, pencil and ink on paper. [2931]"
       },
-      {"name": "romulus and remus", "value": 4000,
+      {"name": "Romulus and Remus", "value": 4000,
         "info": "Ca. 1926-1927, ink on paper. [2928]"
       },
-      {"name": "vestal virgins", "value": 4000,
+      {"name": "Scene on the forum with Vestal Virgins", "value": 4000,
         "info": "Ca. 1926-1927, pencil and ink on paper. [2929]"
+      },
+      {"name": "playroom murals", "value": 4000,
+        "info": "Photographs. [2949]"
+      },
+      {"name": "Symphonix", "value": 4000,
+        "info": "Negative stat on board. [2945]"
+      },
+      {"name": "Christmas cards, circa 1940s", "value": 4000,
+        "info": ""
+      },
+      {"name": "Enoch Arden", "value": 4000,
+        "info": "Watercolor on board. [2922]"
+      },
+      {"name": "Sketchbook, circa 195?", "value": 4000,
+        "info": "Spiral notebook, ink on paper. [2932]"
+      },
+      {"name": "Bird Women", "value": 4000,
+        "info": "Original pencil on tracing paper. [2965]"
+      },
+      {"name": "Bird Women", "value": 4000,
+        "info": "Bezch-bird Woman [2966]"
       }
      ]
     },
@@ -34,7 +55,10 @@
     {
      "name": "High School and College Materials",
      "children": [
-      {"name": "AspectRatioBanker", "value": 7074}
+      {"name": "Central High School - Minstrel Show program", "value": 7074,
+      "info": " program for the high school comedy entitled 'Chicopee Surprised' which Geisel wrote. [2923]"},
+      {"name": "Oxford University Notebook, 1925 - 1926", "value": 7074,
+      "info": "A small, ring-binder notebook of lecture notes and marginal drawings. [2996]"}
      ]
     }
    ]
@@ -102,8 +126,17 @@
   {
    "name": "Advertising artwork",
    "children": [
-    {"name": "Ajax Cup advertisement", "value": 43116,
+    {"name": "Ajax Cup advertisement", "value": 10000,
       "img": "http://library.ucsd.edu/dc/object/bb16050824/_1_3.jpg"
+    },
+    {"name": "Contractor postal and business cards",
+     "value": 10000,
+     "img": "http://library.ucsd.edu/dc/object/bb5325252j/_3.jpg"
+    },
+    {
+      "name": "General Electric",
+      "value": 10000,
+      "img": "http://library.ucsd.edu/dc/object/bb9045422z/_1_3.jpg"
     }
    ]
   },

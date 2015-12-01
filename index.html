@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="d3textwrap.v0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <style>
@@ -207,13 +208,14 @@
                     })
                     .call(rect)
                     .append("title")
-                    .text(function(d) { return formatNumber(d.value); });
+                    .text(function(d) { return d.info ? d.info : d.value; });
 
             g.append("text")
                     .attr("dy", ".75em")
                     .text(function(d) { 
                         var info = d.info ? ": " + d.info : "";
-                        return d.name + " " + info; 
+                        // return d.name + " " + info; 
+                        return d.name;
                     })
                     .call(text);
 
@@ -303,7 +305,6 @@
         function text(text) {
             text.attr("x", function(d) { return x(d.x) + 6; })
                     .attr("y", function(d) { return y(d.y) + 6; });
-
         }
 
         function rect(rect) {
