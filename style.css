@@ -95,7 +95,7 @@ li[class^="level-"] {
 }
 
 #img-div {
-    height: 250px;
+    height: 240px;
 }
 
 img {
@@ -115,10 +115,7 @@ img {
 }
 
 #requested-list {
-    float:right;
-    word-break:break-all;
-    display: inline;
-    width: 100%;
+    
 }
 
 #levels {
