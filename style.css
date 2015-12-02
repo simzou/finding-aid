@@ -65,7 +65,7 @@ rect {
 }
 
 li[class^="level-"] {
-    padding: 10px;
+    padding: 6px;
     font-family: Arial;
 }
 
@@ -112,7 +112,6 @@ img {
 }
 
 #levels, #requests {
-    display: inline-block;
 }
 
 #requested-list {
@@ -123,9 +122,22 @@ img {
 }
 
 #levels {
+    height: 350px;
+}
+/*
+#levels {
     float: left;
 }
 
 #requests {
     float: right;
 }
+
+#requested-list {
+    float: right;
+}
+
+#levels-list {
+    float: left;
+}
+*/
