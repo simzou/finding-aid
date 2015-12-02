@@ -18,11 +18,16 @@
             font-family: Roboto;
         }
         #tooltip {
-            width: 100px;
-            height: 50px;
-            border: 5px solid red;
+            display: inline-block;
+            border: 2px solid gray;
             position: absolute;
+            border-radius: 3px;
             display: none;
+            background-color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
     </style>
@@ -229,9 +234,7 @@
                         }
                         return classes;
                     })
-                    .call(rect)
-                    .append("title")
-                    .text(function(d) { return d.info ? d.info : d.value; });
+                    .call(rect);
 
             g.append("text")
                     .attr("dy", ".75em")
@@ -312,9 +315,6 @@
                 g1.selectAll("rect")
                     .style("fill", function (d,i) {
                         return colors[num_levels];
-                    })
-                    .on('mousemove', function(d) {
-                        console.log(d3.mouse(this));
                     });
 
 
@@ -322,17 +322,29 @@
                     .style("fill", function (d,i) {
                         return colors[num_levels];
                     })
+                    .on('mouseover', function(d) {
+                        if (!d._children && d.info){
+                            tooltip.show();
+                        }
+                    })
                     .on('mousemove', function(d) {
-                        if (!d._children) {
-                            console.log(d3.mouse(this));
-                            var x = d3.mouse(this)[0] + 50;
-                            var y = d3.mouse(this)[1] + 50;
+                        if (!d._children && d.info) {
+                            // console.log(d3.mouse(this));
+                            // manually tweaking the location
+                            var x_offset = 60;
+                            var y_offset = 130; 
+                            var x = d3.mouse(this)[0] + x_offset;
+                            var y = d3.mouse(this)[1] + y_offset;
                             tooltip.css("left", x);
                             tooltip.css("top", y);
-                            tooltip.show()
+                            if (!d._children && d.info) {
+                                tooltip.html("<p>" + d.info + "</p>");
+                            }
+
                         }
                     })
                     .on('mouseout', function(d) {
+                        tooltip.html("");
                         tooltip.hide();
                     })
 
