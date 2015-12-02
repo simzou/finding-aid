@@ -6,7 +6,8 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="d3textwrap.v0.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <style>
@@ -15,6 +16,13 @@
         }
         text {
             font-family: Roboto;
+        }
+        #tooltip {
+            width: 100px;
+            height: 50px;
+            border: 5px solid red;
+            position: absolute;
+            display: none;
         }
 
     </style>
@@ -48,7 +56,11 @@
 </div>
 
 
+<div id="tooltip"></div>
+
     <script>
+
+
 
     var margin = {top: 30, right: 0, bottom: 0, left: 0},
             width = 960,
@@ -101,6 +113,8 @@
             4: "#DDA0DD" // plum
         }
 
+    var tooltip = $("#tooltip");
+
     requested = [];
 
     $("#clear-button").click(function(){
@@ -115,6 +129,13 @@
         );
     });
     
+    var tip = d3.tip()
+        .attr("class", "d3-tip")
+        .offset([-10, 0])
+        .html(function(d) {
+            return d.info ? d.info : d.name;
+        });
+
     d3.json("flare.json", function(root) {
         initialize(root);
         accumulate(root);
@@ -136,6 +157,8 @@
 
             update_levels(dummy_parent);
         }
+
+
 
         // Aggregate the values for internal nodes. This is normally done by the
         // treemap layout, but not here because of our custom implementation.
@@ -289,13 +312,29 @@
                 g1.selectAll("rect")
                     .style("fill", function (d,i) {
                         return colors[num_levels];
+                    })
+                    .on('mousemove', function(d) {
+                        console.log(d3.mouse(this));
                     });
 
 
                 g2.selectAll("rect")
                     .style("fill", function (d,i) {
                         return colors[num_levels];
-                    });
+                    })
+                    .on('mousemove', function(d) {
+                        if (!d._children) {
+                            console.log(d3.mouse(this));
+                            var x = d3.mouse(this)[0] + 50;
+                            var y = d3.mouse(this)[1] + 50;
+                            tooltip.css("left", x);
+                            tooltip.css("top", y);
+                            tooltip.show()
+                        }
+                    })
+                    .on('mouseout', function(d) {
+                        tooltip.hide();
+                    })
 
             }
 
@@ -317,7 +356,7 @@
                     })
                     .attr("name", function(d) {
                         return d.name;
-                    });
+                    })
         }
 
         function name(d) {
